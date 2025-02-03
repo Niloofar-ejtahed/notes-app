@@ -1,0 +1,23 @@
+<div class="mx-auto p-5" *ngIf="note">
+  <div class="card border-success mb-3">
+    <div
+      class="card-header bg-transparent border-dark text-start d-flex justify-content-between pe-1"
+    >
+      <h6>{{ note.title }}</h6>
+    </div>
+
+    <div class="card-body text-dark text-start">
+      <p class="card-text">{{ note.note }}</p>
+    </div>
+
+    <div *ngIf="note.category" class="text-end p-2">
+      <span class="category">
+        {{ note.category }}
+      </span>
+    </div>
+
+    <a class="text-center" role="button" (click)="navigateToHome()"
+      >Back to Home</a
+    >
+  </div>
+</div>

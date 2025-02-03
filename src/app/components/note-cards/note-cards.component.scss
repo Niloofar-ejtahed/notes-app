@@ -1,0 +1,41 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  gap: 10px;
+}
+
+.grid-item {
+  background-color: #f4f4f4;
+  padding: 5px;
+  text-align: center;
+}
+
+a{
+    font-size: 13px;
+    margin-top: 7px;
+}
+
+.category {
+  font-size: 12px;
+  background-color: #4c7b8b;
+  color: white;
+  border-radius: 3px;
+  padding: 5px;
+}
+
+.delete-button {
+  color: rgb(202, 32, 32);
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.edit-button {
+  color: rgb(13, 124, 143);
+  margin-right: 8px;
+  cursor: pointer;
+}

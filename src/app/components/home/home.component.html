@@ -1,0 +1,25 @@
+<div class="container my-3" id="main-box">
+  <div class="d-flex justify-content-between">
+    <h3 class="my-3">Notes</h3>
+    <div (click)="onAddClick()">
+      <i class="bi bi-plus-square-fill add-button"></i>
+    </div>
+  </div>
+
+  <note-cards
+    [updateFlag]="isUpdatedNotes"
+    (edit)="getNote($event)"
+  ></note-cards>
+</div>
+
+<div class="mx-auto add" *ngIf="showAddModel">
+  <add-note (close)="onClose($event)" (update)="getUpdates($event)"></add-note>
+</div>
+
+<div class="mx-auto edit" *ngIf="showEditModal">
+  <edit-note
+    [data]="selectedNote"
+    (close)="onEditClose($event)"
+    (update)="getUpdates($event)"
+  ></edit-note>
+</div>

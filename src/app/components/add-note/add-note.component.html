@@ -1,0 +1,83 @@
+<div class="modal-add text-center mx-auto p-3">
+  <div class="d-flex justify-content-between">
+    <h5>New Note</h5>
+    <div (click)="onCloseClick()" class="close-button">
+      <i class="bi bi-x-lg"></i>
+    </div>
+  </div>
+
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <div class="form-field">
+      <div class="mb-2 d-flex">
+        <label for="title" class="col-3 col-form-label text-start">Title</label>
+        <div class="col-9">
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            name="title"
+            formControlName="title"
+            required
+          />
+
+          <ng-container
+            *ngIf="myForm.get('title')?.touched && myForm.get('title')?.invalid"
+          >
+            <p class="text-danger text-start mb-0 pt-1 error">
+              Please add a Title
+            </p>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-2 d-flex form-field">
+      <label for="note" class="form-label col-3 text-start">Note</label>
+      <div class="col-9">
+        <textarea
+          class="form-control"
+          id="note"
+          rows="3"
+          name="note"
+          formControlName="note"
+          required
+        ></textarea>
+        <ng-container
+          *ngIf="myForm.get('note')?.touched && myForm.get('note')?.invalid"
+        >
+          <p class="text-danger text-start mb-0 pt-1 error">Please add Note</p>
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="mb-3 d-flex form-field">
+      <label class="form-label col-3 text-start align-self-center"
+        >Category</label
+      >
+      <div class="col-9">
+        <select
+          class="form-select"
+          formControlName="category"
+          name="category"
+          id="category"
+        >
+          <option *ngFor="let item of category" value="{{ item.key }}">
+            {{ item.key }}
+          </option>
+        </select>
+      </div>
+      ّ
+    </div>
+
+    <div class="footer">
+      <button
+        type="button"
+        class="btn btn-secondary me-2"
+        (click)="onCloseClick()"
+      >
+        Cancel
+      </button>
+      <button type="button" class="btn btn-success" type="submit">Save</button>
+    </div>
+  </form>
+</div>

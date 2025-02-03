@@ -1,0 +1,31 @@
+.modal-edit {
+  position: absolute;
+  top: 30%;
+  width: 450px;
+  height: max-content;
+  border: 1px solid #4c7b8b;
+  background-color: white;
+  border-radius: 10px;
+  color: black;
+
+  @media (max-width: 768px) {
+    width: 350px;
+  }
+}
+
+.close-button {
+  cursor: pointer;
+}
+
+.footer {
+  position: relative;
+  right: -135px;
+  @media (max-width: 768px) {
+    right: -90px;
+  }
+  bottom: -3px;
+}
+
+.error {
+  font-size: 10px;
+}

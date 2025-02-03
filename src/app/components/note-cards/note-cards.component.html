@@ -1,0 +1,40 @@
+
+
+<div class="d-flex justify-content-between mb-4">
+  <div class="col-6">
+    <search-bar (result)="getFilteredNote($event)"></search-bar>
+  </div>
+  <div class="col-6">
+    <filter (filter)="onFilterByCategory($event)"></filter>
+  </div>
+</div>
+
+<div class="grid-container" *ngIf="notes.length>0">
+
+  <div *ngFor="let note of notes;let i=index" class="card border-success mb-3 grid-item" style="max-width: 18rem;">
+
+    <div class="card-header bg-transparent border-dark text-start d-flex justify-content-between pe-1">
+      <h6>{{note.title}}</h6>
+      <div>
+        <i (click)="onDeleteNoteClick(note.id)" class="bi bi-trash3 delete-button"></i>
+        <i (click)="onEditNoteClick(note)" class="bi bi-pen edit-button"></i>
+        
+      </div>
+    </div>
+
+    <div class="card-body text-dark text-start">
+      <p class="card-text">{{ note.note.length > 50 ? (note.note | slice:0:50) + '...' : note.note }}</p>
+    </div>
+
+    <div class="text-end p-2 d-flex justify-content-between">
+      <a [routerLink]="['/details', note.id]">Details</a>
+     <span *ngIf="note.category" class="category">
+      {{note.category}}
+     </span>
+    </div>
+
+  </div>
+
+
+</div>
+

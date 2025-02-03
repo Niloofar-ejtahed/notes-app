@@ -1,0 +1,22 @@
+.add-button {
+  font-size: 30px;
+  color: #efb036;
+  margin-top: 10px;
+  &:hover {
+    color: azure;
+  }
+}
+
+.add {
+  width: 450px;
+  @media (max-width: 768px) {
+    width: 350px;
+  }
+}
+
+.edit {
+  width: 450px;
+  @media (max-width: 768px) {
+    width: 350px;
+  }
+}

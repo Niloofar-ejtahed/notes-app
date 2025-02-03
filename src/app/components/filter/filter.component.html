@@ -1,0 +1,16 @@
+<div class="text-end" *ngIf="categoryList">
+
+    <span (click)="onCategoryClick(null)">
+        <button type="button" class="btn btn-secondary rounded-pill me-2">
+          All
+          <span class="badge bg-success"> {{notes?.length}}</span>
+        </button>
+      </span>
+
+  <span *ngFor="let c of categoryList" (click)="onCategoryClick(c)">
+    <button *ngIf="c[0]" type="button" class="btn btn-secondary rounded-pill me-2">
+      {{ c[0] }}
+      <span class="badge bg-success">{{ c[1] }}</span>
+    </button>
+  </span>
+</div>
